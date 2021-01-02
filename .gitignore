@@ -1,0 +1,9 @@
+ChromeExtension.zip
+chrome-banner-440-280.png
+ChromeExtension.pem
+ChromeExtension.crx
+1.html
+*.pdn
+.vscode/launch.json
+ChromeExtension/js/jquery
+ChromeExtension/semantic

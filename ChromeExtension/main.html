@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <script src="js/jquery/jquery-3.1.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <script src="semantic/semantic.min.js"></script>
+  </head>
+  <body>
+    <div class="ui basic segment">
+      <h3 class="ui header" id="extension_title">TradingView Alerts</h3>
+
+      <div id="chrome_account_check">
+        <span id="account_status_loading"></span>
+        <div id="account_status_login" style="display: none" class="ui button"></div>
+      </div>
+
+      <div id="tv_tabs_check">
+        <div id="alerts_status_fail_block" style="display: none"><p id="alerts_status_fail"></p></div>
+        <div id="alerts_status_ok_block" style="display: none"><p id="alerts_status_ok"></p></div>
+      </div>
+
+      <div>
+        <br/>
+        <span id="trial_ended" style="display: none">Your trial period has ended. Consider buying a subscription.</span>
+      </div>
+      
+      <div id="free_limit_hit_div" style="display: none">
+        <br/>
+        <span id="free_limit_hit">The limit of free messages is hit.</span>
+      </div>
+
+      <p id="key_info_ok"></p>
+
+      <p id="key_info_set">You need to set the telegram key in the <a href="options.html">options</a> (you can get it by starting a dialog with <a href="https://telegram.me/profit_robots_bot" target="_blank">@profit_robots_bot</a>)</p>
+      
+      <div>
+        <br/>
+        <span id="max_keys"></span> <span id="max_keys_value"></span>
+      </div>
+
+      <br/>
+      <div><a href="doesnt_work.html" id="doesnt_work">Doesn't work?</a></div>
+      <div><a href="add_alert.html" id="add_alert">How to add an alert into your strategy</a></div>
+      <div><a href="https://chrome.google.com/webstore/detail/tradingview-alerts/ojbnlipjeadjbehiplciekcdpfikkbib" target="_blank" id="feedback"></a></div>
+
+      <footer>
+        <div class="ui divider"></div>
+        <p>
+          <a href="https://goo.gl/xrDwNZ" target="_blank" id="youtube_link" title="Our Youtube channel">
+            <i class="ui big icon youtube"></i>
+          </a>
+          <a href="http://bit.ly/2CORn5S" target="_blank">
+            <i class="ui big icon">
+              <img src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg" title="Discord"/>
+            </i>
+          </a>
+          <a href="https://www.facebook.com/profitrobots/" target="_blank" title="Facebook">
+            <i class="ui big icon facebook"></i>
+          </a>
+        </p>
+        <p>&copy; 2017-2019 - <a href="http://profitrobots.com" target="_blank">Profit Robots</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

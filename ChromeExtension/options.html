@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/jquery/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <script src="semantic/semantic.min.js"></script>
+</head>
+<body>
+
+<div class="ui basic segment">
+    <div class="ui top attached tabular menu">
+        <a class="item active" data-tab="keys_tab" id="keys_title"></a>
+        <a class="item" data-tab="beta_tab" id="beta_features_title"></a>
+    </div>
+    <div class="ui bottom attached tab segment active" data-tab="keys_tab">
+        <div id="add_button" class="ui button">Add receiver</div>
+        <form class="ui form" id="keys">
+        </form>
+        <div class="ui form">
+            <div class="field">
+                <div class="ui checkbox">
+                    <input class="ui input fluid" type="checkbox" id="ignore_if_no_filter" />
+                    <label id="ignore_if_no_filter_label"></label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input class="ui input fluid" type="checkbox" id="include_instrument" />
+                    <label id="include_instrument_label"></label>
+                </div>
+            </div>
+            <div class="field">
+                <input class="ui input" type="text" id="custom_format" />
+                <div class="custom_format_desc">You can use the next templates: {{symbol}} for the symbol/ticker, {{timeframe}} for the timeframe/period and {{message}} for the message itself.</div>
+            </div>
+            <div class="ui dividing header" id="test_title">Test</div>
+            <div class="field">
+                <label id="test_message_label">Test message</label>
+                <input type="text" name="test_message" id="test_message" value="[*]Test" />
+                <a id="test_button" class="ui button">Send test message:</a>
+            </div>
+            <div class="ui info message" id="key_key_info">NOTE: You can get telegram key by starting a conversation with <a href="https://telegram.me/profit_robots_bot" target="_blank">our telegram bot</a> and following the instructions.</div>
+        </div>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="beta_tab">
+        <div class="field">
+            <div class="ui checkbox">
+                <input class="ui input fluid" type="checkbox" id="use_beta" />
+                <label id="use_beta_label"></label>
+            </div>
+        </div>
+        <br/>
+        <div class="grouped fields" >
+            <label for="bot_hosting" id="bot_hosting">Bot to use:</label>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="bot_hosting" tabindex="0" class="hidden" id="pr_bot">
+                <label id="pr_bot_label">ProfitRobots.com</label>
+              </div>
+              <div id="pr_bot_desc">Shared bot with restriction.</div>
+            </div>
+            <br/>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="bot_hosting" tabindex="0" class="hidden" id="local_bot">
+                <label id="local_bot_label">Local bot</label>
+              </div>
+              <div id="local_bot_desc">Locally hosted bot for your personal use without any restrictions.</div>
+            </div>
+        </div>
+        <div id="external_execution"></div>
+    </div>
+    <br/>
+    <div id="save_button" class="ui button">Save</div>
+    <div id="error_message" class="ui warning message" style="display:none"></div>
+
+    <script type="text/javascript" src="/js/buy.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/options.js"></script>
+</div>
+</body>
+</html>

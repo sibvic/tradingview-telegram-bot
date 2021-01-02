@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="js/jquery/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <script src="semantic/semantic.min.js"></script>
+  </head>
+  <body>
+    <div class="ui basic segment">
+      <h3 class="ui header" id="filter_samples_title">Filter samples</h3>
+      <p id="filter_sample_intro">There is several way to do filtering</p>
+      <h4 class="ui header" id="no_filter_sample_title">Do not add a filter in the message</h4>
+      <p id="filter_sample_example">Example:</p>
+      <pre>'Alert Message!'</pre>
+      <p id="no_filter_ignore_checked">If the "Ignore messages without filter specified" option is checked then this message will be ignored. This is a good way to filter out messages which you don't want to send into the Telegram (for example - AutoView messages).</p>
+      <p id="no_filter_ignore_unchecked">If the "Ignore messages without filter specified" option is unchecked then this message will be sent using all keys.</p>
+      <h4 class="ui header" id="all_filter_sample_title">* filter</h4>
+      <p id="filter_sample_example_1">Example:</p>
+      <pre>[*]'Alert Message!'</pre>
+      <p id="filter_sample_all">This message will be sent to all keys.</p>
+      <h4 class="ui header" id="custom_filter_sample_title">Custom filter</h4>
+      <p id="filter_sample_example_2">Example:</p>
+      <pre>[me]'Alert Message!'</pre>
+      <p id="filter_sample_custom">This message will be sent to the key with id "me". You can specify several id's separated with comma:</p>
+      <pre>[me,mychannel]'Alert Message!'</pre>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/VKAtaZ07b98" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <footer>
+        <div class="ui divider"></div>
+        <p>
+          <a href="https://goo.gl/xrDwNZ" target="_blank" id="youtube_link" title="Our Youtube channel">
+            <i class="ui big icon youtube"></i>
+          </a>
+          <a href="http://bit.ly/2CORn5S" target="_blank">
+            <i class="ui big icon">
+              <img src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg" title="Discord"/>
+            </i>
+          </a>
+          <a href="https://www.facebook.com/profitrobots/" target="_blank" title="Facebook">
+            <i class="ui big icon facebook"></i>
+          </a>
+        </p>
+        <p>&copy; 2017-2019 - <a href="http://profitrobots.com" target="_blank">Profit Robots</a></p>
+      </footer>
+      <script src="js/filter_samples.js"></script>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+{
+    "extension_title": {
+        "message": "Оповещения из TradingView",
+        "description": "Название расширения"
+    },
+    "extension_desc": {
+        "message": "Отправляет сообщения с TradingView.com в Телеграм/Discord/MT4/MT5/FXTS как команду, сообщение или делает пост в канал",
+        "description": "Описание расширения"
+    },
+    "feedback": {
+        "message": "Оценить/предложить улучшение",
+        "description": "Ссылка в main.html"
+    },
+    "key_label": {
+        "message": "Ключ №",
+        "description": "Надпись в параметрах"
+    },
+    "key_id_label": {
+        "message": "Идентификатор ключа №",
+        "description": "Надпись в параметрах"
+    },
+    "save_button": {
+        "message": "Сохранить",
+        "description": "Надпись кнопки в параметрах"
+    },
+    "test_button": {
+        "message": "Отправить тестовое сообщение",
+        "description": "Надпись кнопки в параметрах"
+    },
+    "name_caption": {
+        "message": "Функционал",
+        "description": "Надпись в параметрах"
+    },
+    "desc_caption": {
+        "message": "Описание",
+        "description": "Надпись в параметрах"
+    },
+    "price_caption": {
+        "message": "Цена",
+        "description": "Надпись в параметрах"
+    },
+    "bot_hosting": {
+        "message": "Используемый бот:",
+        "description": "Надпись в параметрах"
+    },
+    "pr_bot_label": {
+        "message": "Бот Profit Robots",
+        "description": "Надпись в параметрах"
+    },
+    "pr_bot_desc": {
+        "message": "Общий бот на нашем сервере.",
+        "description": "Надпись в параметрах"
+    },
+    "local_bot_label": {
+        "message": "Локальная копия бота",
+        "description": "Надпись в параметрах"
+    },
+    "local_bot_desc": {
+        "message": "Ваш собственный бот работаюший на вашем ПК. Функция находится в закрытой бете. Запросить доступ можно написав на <a href='mailto:info@profitrobots.com'>info@profitrobots.com</a>",
+        "description": "Надпись в параметрах"
+    },
+    "purchase_button": {
+        "message": "Приобрести",
+        "description": "Надпись кнопки в параметрах"
+    },
+    "license_button": {
+        "message": "Лицензия",
+        "description": "Надпись кнопки в параметрах"
+    },
+    "add_button": {
+        "message": "Добавить получателя",
+        "description": "Надпись кнопки в параметрах"
+    },
+    "SkuDetailsFailed": {
+        "message": "Не удалось получить список дополнительного функционала. ",
+        "description": "Сообщение в параметрах"
+    },
+    "KeyLimitIsHit": {
+        "message": "Текущая лиценция не доспускает использоваения такого количества ключей",
+        "description": "Сообщение в параметрах"
+    },
+    "key_key_info": {
+        "message": "Ключ выглядит вот так: '00000000:t00000'.<br/>Ешл можно получить начав диалог с <a href='https://telegram.me/profit_robots_bot' target='_blank'>нашим Телеграм ботом</a>. Подробнее читайте <a href='https://profitrobots.com/Notifications/TelegramKey' target='_blank'>в этой инструкции</a>.<br/>Для получения ключа для Dicord напишите <a href='http://bit.ly/2CORn5S' target='_blank'>нашему Discord боту</a>. Подробнее читайте <a href='https://profitrobots.com/Notifications/DiscordKey' target='_blank'>в этой инструкции</a>.<br/>Видео с демонстрацией процесса можно посмотреть <a href='bot_setup.html'>здесь</a>.<br/><br/>В начале сообщения можно указать какой ключ использовать для посылки оповещения: '[идентификатор_ключа]Сообщение которое нужно отослать'. Если идентификтор в начале сообщения не указан сообщение будет разослано с использованием всех ключей.<br/>Как пользоваться фильтрами можно <a href='filter_samples.html'>посмотреть тут.</a> ",
+        "description": "Надпись в параметрах"
+    },
+    "ignore_if_no_filter_label": {
+        "message": "Игнорировать сообщение без указанного фильтра",
+        "description": "Надпись в параметрах"
+    },
+    "test_message_label": {
+        "message": "Тестовое сообщение",
+        "description": "Надпись в параметрах"
+    },
+    "include_instrument_label": {
+        "message": "Свой формат сообщений",
+        "description": "Надпись в параметрах"
+    },
+    "custom_format_desc": {
+        "message": "Используйте {{symbol}} для символа/тикера, {{timeframe}} для периода и {{message}} для сообщения.",
+        "description": "Надпись в параметрах"
+    },
+    "use_beta_label": {
+        "message": "Использовать эксперементальные функции. Может повлечь нестабильную работу",
+        "description": "Надпись в параметрах"
+    },
+    "NoFilterIgnoreMessage":
+    {
+        "message": "В сообщении не указан фильтр. Сообщение проигнорировано.",
+        "description": "Сообщение в параметрах"
+    },
+    "LicenseUpdateFail":
+    {
+        "message": "Ошибка получения списка покупок.",
+        "description": "Сообщение в параметрах"
+    },
+    "PurchaseFailed":
+    {
+        "message": "Не удалось завершить покупку.",
+        "description": "Сообщение в параметрах"
+    },
+    "PurchaseCompleted":
+    {
+        "message": "Покупка завершена. Идентификатор покупки: ",
+        "description": "Сообщение в параметрах"
+    },
+    "OptionsSaved":
+    {
+        "message": "Параметры сохранены.",
+        "description": "Сообщение в параметрах"
+    },
+    "TestSuccess":
+    {
+        "message": "Ключ действительный. Не забудьте сохранить.",
+        "description": "Сообщение в параметрах"
+    },
+    "TestFailed":
+    {
+        "message": "Указанный ключ не найден.",
+        "description": "Сообщение в параметрах"
+    },
+    "doesnt_work_step_1":
+    {
+        "message": "После установки этого расширения необходимо обновить страницу с TradingView.",
+        "description": "Надпись на странице Не работает?"
+    },
+    "doesnt_work_step_2":
+    {
+        "message": "Если вы не получаете оповещения даже после обновления страницы TradingView, напишите нам:",
+        "description": "Надпись на странице Не работает?"
+    },
+    "manual_on_youtube":
+    {
+        "message": "Можете ознакомится с инструкциями по настройке на нашем ",
+        "description": "Надпись на странице Не работает?"
+    },
+    "youtube_link_text":
+    {
+        "message": "Наш Youtube канал",
+        "description": "Подсказка для ссылки на Youtube"
+    },
+    "add_alert_1":
+    {
+        "message": "Стратегии в TradingView не могут посылать оповещения. Для этого вам нужно сконвертировать вашу стратегию в индикатор.",
+        "description": "Надпись на странице Добавить оповещение"
+    },
+    "add_alert_2":
+    {
+        "message": "Обычно это можно сделать заменой вызовов strategy.* на alertcondition(...). К примеру, подобная стратегия:",
+        "description": "Надпись на странице Добавить оповещение"
+    },
+    "add_alert_3":
+    {
+        "message": "может быть сконвертирована в такой индикатор:",
+        "description": "Надпись на странице Добавить оповещение"
+    },
+    "add_alert_4":
+    {
+        "message": "Также вы можете послать код вашей стратегии нам на почту ",
+        "description": "Надпись на странице Добавить оповещение"
+    },
+    "add_alert_5":
+    {
+        "message": "и мы пришем вам код сконвертированный в индикатор с оповещениями.",
+        "description": "Надпись на странице Добавить оповещение"
+    },
+    "KeyIdDoNotMatch":
+    {
+        "message": "Идентификатор ключа не совпадает с указанным в сообщении.",
+        "description": "Сообщение в параметрах"
+    },
+    "doesnt_work":
+    {
+        "message": "Не работает?",
+        "description": "Надпись на главной странице"
+    },
+    "add_alert":
+    {
+        "message": "Как добавить оповещения в вашу стратегию",
+        "description": "Надпись на главной странице"
+    },
+    "free_limit_hit":
+    {
+        "message": "Достигнуто ограничение на количество сообщений в час (для бесплатной версии).",
+        "description": "Надпись на главной странице"
+    },
+    "max_keys":
+    {
+        "message": "Активных ключей: ",
+        "description": "Надпись на главной странице"
+    },
+    "account_status_loading":
+    {
+        "message": "Вход в аккаунт...",
+        "description": "Надпись на главной странице"
+    },
+    "account_status_login":
+    {
+        "message": "Вход",
+        "description": "Название кнорки на главной странице"
+    },
+    "trial_ended":
+    {
+        "message": "Пробный период окончен. Для дальнейшего использования данного расширения нужна покупка. В бесплатной версии возможно посылать не более одного оповещения в час.",
+        "description": "Надпись на главной странице"
+    },
+    "key_info_set":
+    {
+        "message": "Укажите ключ в <a href='options.html'>параметрах</a> (ключ можно получить начав беседу с <a href='https://telegram.me/profit_robots_bot' target='_blank'>@profit_robots_bot</a> или с <a href='http://bit.ly/2CORn5S' target='_blank'>нашим Discord ботом</a>)",
+        "description": "Надпись на главной странице"
+    },
+    "alerts_status_fail":
+    {
+        "message": "Не найдено открытых страниц TradingView. Обновите страницу TradingView или откройте новую",
+        "description": "Label on the main page"
+    },
+    "alerts_status_ok":
+    {
+        "message": "Ожидание оповещений от TradingView",
+        "description": "Надпись на главной странице"
+    },
+    "keys_title":
+    {
+        "message": "Получатели",
+        "description": "Надпись в настройках"
+    },
+    "test_title":
+    {
+        "message": "Тест",
+        "description": "Надпись в настройках"
+    },
+    "beta_features_title":
+    {
+        "message": "Экспериментальный функционал",
+        "description": "Надпись в настройках"
+    },
+    "external_execution":
+    {
+        "message": "Также по запросу мы может дать доступ к исполнителю команд MetaTrader 4, позволяещему отправлять оредера из TradingView в MetaTrader 4.",
+        "description": "Надпись в настройках"
+    },
+    "features_title":
+    {
+        "message": "Дополнительный функционал",
+        "description": "Надпись в настройках"
+    },
+    "filter_samples_title":
+    {
+        "message": "Примеры фильтров",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "no_filter_sample_title":
+    {
+        "message": "Без указания фильтра в сообщении",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "custom_filter_sample_title":
+    {
+        "message": "Произвольный фильтр",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "all_filter_sample_title":
+    {
+        "message": "Фильтр *",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "filter_sample_intro":
+    {
+        "message": "Фильтровать сообщения можно несколькими способами",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "filter_sample_example":
+    {
+        "message": "Пример:",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "no_filter_ignore_checked":
+    {
+        "message": "Если параметр \"Игнорировать сообщение без указанного фильтра\" выставлен то такое сообщение игнорируется. Так можно отфильтровывать сообщения которые не нужно отправлять в телеграм вообще (к примеру - сообщения для AutoView).",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "no_filter_ignore_unchecked":
+    {
+        "message": "Если параметр \"Игнорировать сообщение без указанного фильтра\" не выставлен то такое сообщение будет направлена всем получателям.",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "filter_sample_all":
+    {
+        "message": "Такое сообщение будет направлено всем получателям.",
+        "description": "Надпись на странице с примерами фильтров"
+    },
+    "filter_sample_custom":
+    {
+        "message": "Такое сообщение будет направлено получателю с идентификатором \"me\". Через запятую можно указать несколько идентификаторов:",
+        "description": "Надпись на странице с примерами фильтров"
+    }
+}

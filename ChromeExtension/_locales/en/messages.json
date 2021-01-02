@@ -1,0 +1,316 @@
+{
+    "extension_title": {
+        "message": "TradingView Alerts",
+        "description": "Title of the extension"
+    },
+    "extension_desc": {
+        "message": "Sends TradingView.com alerts into Telegram/Discord/MT4/MT5/FXTS2 as orders, alerts or channel posts",
+        "description": "Description of the extension"
+    },
+    "feedback": {
+        "message": "Leave feedback/make a proposal",
+        "description": "Link in the main.html"
+    },
+    "key_label": {
+        "message": "Telegram/Discord Key #",
+        "description": "Label in the options"
+    },
+    "key_id_label": {
+        "message": "Id of the Key #",
+        "description": "Label in the options"
+    },
+    "name_caption": {
+        "message": "Feature",
+        "description": "Label in the options"
+    },
+    "desc_caption": {
+        "message": "Description",
+        "description": "Label in the options"
+    },
+    "price_caption": {
+        "message": "Price",
+        "description": "Label in the options"
+    },
+    "bot_hosting": {
+        "message": "Bot to use:",
+        "description": "Label in the options"
+    },
+    "pr_bot_label": {
+        "message": "Profit Robots Bot",
+        "description": "Label in the options"
+    },
+    "pr_bot_desc": {
+        "message": "Shared bot on our server.",
+        "description": "Label in the options"
+    },
+    "local_bot_label": {
+        "message": "Self-hosted bot",
+        "description": "Label in the options"
+    },
+    "local_bot_desc": {
+        "message": "Your own bot run on your PC. This feature is in closed beta. You can ask for an access via <a href='mailto:info@profitrobots.com'>info@profitrobots.com</a>",
+        "description": "Label in the options"
+    },
+    "purchase_button": {
+        "message": "Purchase",
+        "description": "Caption of the button in the options"
+    },
+    "license_button": {
+        "message": "View license",
+        "description": "Caption of the button in the options"
+    },
+    "save_button": {
+        "message": "Save",
+        "description": "Caption of the button in the options"
+    },
+    "test_button": {
+        "message": "Send test message",
+        "description": "Caption of the button in the options"
+    },
+    "add_button": {
+        "message": "Add receiver",
+        "description": "Caption of the button in the options"
+    },
+    "KeyLimitIsHit": {
+        "message": "Your current licence doesn't allow you to use so many keys",
+        "description": "Message in the options"
+    },
+    "SkuDetailsFailed": {
+        "message": "Error retreiving product list. ",
+        "description": "Message in the options"
+    },
+    "key_key_info": {
+        "message": "The key should look like this: 't-123456789:t00000'.<br/>You can get Telegram key by starting a conversation with <a href='https://telegram.me/profit_robots_bot' target='_blank'>our Telegram Bot</a>. Read <a href='https://profitrobots.com/Notifications/TelegramKey' target='_blank'>this article</a> for more details.<br/>To get the Dicord key write something to <a href='http://bit.ly/2CORn5S' target='_blank'>our Discord bot</a>. Read <a href='https://profitrobots.com/Notifications/DiscordKey' target='_blank'>this article</a> for more details.<br/>You can watch how to use bots <a href='bot_setup.html'>here</a>.<br/><br/>To send the alert using a specific key just start the alert text using '[your_key_id]Your alert text'. The alert will be sent using all keys if no '[your_key_id]' is specified. You can read how to use the filtering <a href='filter_samples.html'>here.</a>",
+        "description": "Label in the options"
+    },
+    "ignore_if_no_filter_label": {
+        "message": "Ignore messages without filter specified",
+        "description": "Label in the options"
+    },
+    "test_message_label": {
+        "message": "Test message",
+        "description": "Label in the options"
+    },
+    "include_instrument_label": {
+        "message": "Custom formatting",
+        "description": "Label in the options"
+    },
+    "custom_format_desc": {
+        "message": "You can use the next templates: {{symbol}} for the symbol/ticker, {{timeframe}} for the timeframe/period and {{message}} for the message itself.",
+        "description": "Label in the options"
+    },
+    "use_beta_label": {
+        "message": "Use experimental features. May case issues with execution",
+        "description": "Label in the options"
+    },
+    "NoFilterIgnoreMessage":
+    {
+        "message": "No filter is specified in the message. Ignoring this message.",
+        "description": "Popup message in the options"
+    },
+    "LicenseUpdateFail":
+    {
+        "message": "Error retreiving list of purchased products.",
+        "description": "Popup message in the options"
+    },
+    "PurchaseFailed":
+    {
+        "message": "Purchase failed.",
+        "description": "Popup message in the options"
+    },
+    "PurchaseCompleted":
+    {
+        "message": "Purchase completed. Order ID: ",
+        "description": "Popup message in the options"
+    },
+    "OptionsSaved":
+    {
+        "message": "Options saved.",
+        "description": "Popup message in the options"
+    },
+    "TestSuccess":
+    {
+        "message": "Key is valid. Don't forget to save.",
+        "description": "Popup message in the options"
+    },
+    "TestFailed":
+    {
+        "message": "Key was not found.",
+        "description": "Popup message in the options"
+    },
+    "doesnt_work_step_1":
+    {
+        "message": "Please, make sure that you refreshed the TradingView page after installing this extension.",
+        "description": "Label in Doesn't work? page"
+    },
+    "doesnt_work_step_2":
+    {
+        "message": "If you still can't get alerts from the TradingView let us know:",
+        "description": "Label in Doesn't work? page"
+    },
+    "manual_on_youtube":
+    {
+        "message": "You can watch manuals on our ",
+        "description": "Label in Doesn't work? page"
+    },
+    "youtube_link_text":
+    {
+        "message": "Our Youtube channel",
+        "description": "Title for the Youtube link"
+    },
+    "add_alert_1":
+    {
+        "message": "Strategies in TradingView can't throw alerts. You need to convert your strategy into the study.",
+        "description": "Label in Add Alert page"
+    },
+    "add_alert_2":
+    {
+        "message": "Usually, you can do it by replacing strategy.* methods with alertcondition(...). For example, strategy like this:",
+        "description": "Label in Add Alert page"
+    },
+    "add_alert_3":
+    {
+        "message": "should be converted into this:",
+        "description": "Label in Add Alert page"
+    },
+    "add_alert_4":
+    {
+        "message": "Or you can ask us to convert your strategy into the study. Send us the code of your strategy to",
+        "description": "Label in Add Alert page"
+    },
+    "add_alert_5":
+    {
+        "message": "and we will send a study with alerts back.",
+        "description": "Label in Add Alert page"
+    },
+    "KeyIdDoNotMatch":
+    {
+        "message": "Key id do not match specified in the alert.",
+        "description": "Popup message in the options"
+    },
+    "doesnt_work":
+    {
+        "message": "Doesn't work?",
+        "description": "Label on the main page"
+    },
+    "add_alert":
+    {
+        "message": "How to add an alert into your strategy",
+        "description": "Label on the main page"
+    },
+    "free_limit_hit":
+    {
+        "message": "The limit of messages per hour is hit (free version).",
+        "description": "Label on the main page"
+    },
+    "max_keys":
+    {
+        "message": "Number of used keys: ",
+        "description": "Label on the main page"
+    },
+    "account_status_loading":
+    {
+        "message": "Logging in...",
+        "description": "Label on the main page"
+    },
+    "account_status_login":
+    {
+        "message": "Login",
+        "description": "Caption of the button on the main page"
+    },
+    "trial_ended":
+    {
+        "message": "Your trial period has ended. You need to buy this extension in order to use it. The free version is limited to 1 alert per hour.",
+        "description": "Label on the main page"
+    },
+    "key_info_set":
+    {
+        "message": "You need to set the key in the <a href='options.html'>options</a> (you can get it by starting a conversation with <a href='https://telegram.me/profit_robots_bot' target='_blank'>@profit_robots_bot</a> Telegram bot or <a href='http://bit.ly/2CORn5S' target='_blank'>our Discord bot</a>)",
+        "description": "Label on the main page"
+    },
+    "alerts_status_fail":
+    {
+        "message": "No TradingView tabs found. Refresh TradingView tab or open a new one",
+        "description": "Label on the main page"
+    },
+    "alerts_status_ok":
+    {
+        "message": "Waiting for TradingView alert",
+        "description": "Label on the main page"
+    },
+    "keys_title":
+    {
+        "message": "Receivers",
+        "description": "Label in the options"
+    },
+    "test_title":
+    {
+        "message": "Test",
+        "description": "Label in the options"
+    },
+    "beta_features_title":
+    {
+        "message": "Beta features",
+        "description": "Label in the options"
+    },
+    "external_execution":
+    {
+        "message": "Also, you can ask for an access for a MetaTrader 4 order execution beta. It'll allow you to send orders from TradingView to MetaTrader 4.",
+        "description": "Label in the options"
+    },
+    "features_title":
+    {
+        "message": "Additional features",
+        "description": "Label in the options"
+    },
+    "filter_samples_title":
+    {
+        "message": "Filter samples",
+        "description": "Label in the filter samples page"
+    },
+    "no_filter_sample_title":
+    {
+        "message": "Do not add a filter in the message",
+        "description": "Label in the filter samples page"
+    },
+    "custom_filter_sample_title":
+    {
+        "message": "Custom filter",
+        "description": "Label in the filter samples page"
+    },
+    "all_filter_sample_title":
+    {
+        "message": "* filter",
+        "description": "Label in the filter samples page"
+    },
+    "filter_sample_intro":
+    {
+        "message": "There are several ways to do filtering",
+        "description": "Label in the filter samples page"
+    },
+    "filter_sample_example":
+    {
+        "message": "Example:",
+        "description": "Label in the filter samples page"
+    },
+    "no_filter_ignore_checked":
+    {
+        "message": "If the \"Ignore messages without filter specified\" option is checked then this message will be ignored. This is a good way to filter out messages which you don't want to send it via this extension (for example - AutoView messages).",
+        "description": "Label in the filter samples page"
+    },
+    "no_filter_ignore_unchecked":
+    {
+        "message": "If the \"Ignore messages without filter specified\" option is unchecked then this message will be sent using all targets.",
+        "description": "Label in the filter samples page"
+    },
+    "filter_sample_all":
+    {
+        "message": "This message will be sent to all targets.",
+        "description": "Label in the filter samples page"
+    },
+    "filter_sample_custom":
+    {
+        "message": "This message will be sent to the target with id \"me\". You can specify several id's separated with a comma:",
+        "description": "Label in the filter samples page"
+    }
+}

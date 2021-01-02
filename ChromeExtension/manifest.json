@@ -1,0 +1,41 @@
+{
+    "name": "__MSG_extension_title__",
+    "short_name": "__MSG_extension_title__",
+    "description" : "__MSG_extension_desc__",
+    "version": "1.0.45",
+    "manifest_version": 2,
+    "default_locale": "en",
+    "browser_action": {
+        "default_popup": "main.html",
+        "default_icon": "icon128.png"
+    },
+    "icons": {
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "background": {
+        "scripts": ["js/common.js", "js/background.js"]
+    },
+    "oauth2": {
+        "client_id": "984997579345-sgdombkmdc6hk9enuo8qmov00rg0t9rv.apps.googleusercontent.com",
+        "scopes": [
+          "https://www.googleapis.com/auth/chromewebstore.readonly"
+        ]
+      },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuIJUy+fSvWxBVctqYXUAGSpZCSFHTWLnbCO0X0+jPubMF+owz7tWlyXTUAthDlwgqvyYcsXO93nagwmYwr4YA4RLfaOsvEl933S153ywT74ByHgXjydZSAL0UmIk0xnP4GzBDhZaLGJtOv28ew4DI6v5Tc2zzE8q+SB06YuoDNqlsY9rNdpsch8cOSc6kqi18cCavUUHmNjRIGhMnsTmzhio4i1ef2QGcAfk+l9Tbl8AbT5LzcVjMTKIc6f9RFF4gcmpUUqGaCmISNkzkfjLsY1qMNEZUo1RvICuzVJorYf+9ZwSGxsyX4vinIah/+g7nudCvB3Q2zu5oZlW12RjdwIDAQAB",
+    "options_page": "options.html",
+    "content_scripts": [ {
+        "js": [ "js/jquery/jquery-3.1.1.min.js", "js/common.js", "content.js" ],
+        "matches": [ "https://*.tradingview.com/*" ],
+        "run_at": "document_start"
+    } ],
+    "permissions": [
+        "storage",
+        "identity",
+        "https://*.tradingview.com/*",
+        "http://profitrobots.com/api/v1/notification",
+        "http://localhost:5000/api/v1/notification",
+        "https://www.googleapis.com/"
+    ],
+    "web_accessible_resources": [ "content_handler.js" ]
+}

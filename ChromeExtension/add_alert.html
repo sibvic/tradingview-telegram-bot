@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script src="js/jquery/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <script src="semantic/semantic.min.js"></script>
+  </head>
+  <body>
+    <div class="ui basic segment">
+      <p id="add_alert_1">Strategies in TradingView can't throw alerts. You need to convert your strategy into the study.</p>
+      <p id="add_alert_2">Usually, you can do it by replacing strategy.* methods with alertcondition(...). For example, strategy like this:</p>
+      <pre>
+    //@version=3
+    strategy("My Strategy", overlay=true)
+
+    longCondition = crossover(sma(close, 14), sma(close, 28))
+    if (longCondition)
+        strategy.entry("My Long Entry Id", strategy.long)
+
+    shortCondition = crossunder(sma(close, 14), sma(close, 28))
+    if (shortCondition)
+        strategy.entry("My Short Entry Id", strategy.short)
+      </pre>
+      <p id="add_alert_3">should be converted into this</p>
+      <pre>
+    //@version=3
+    study("My Study", overlay=true)
+
+    longCondition = crossover(sma(close, 14), sma(close, 28))
+    alertcondition(longCondition, "My Long Entry alert", "My Long Entry alert")
+
+    shortCondition = crossunder(sma(close, 14), sma(close, 28))
+    alertcondition(longCondition, "My Short Entry alert", "My Short Entry alert")
+    
+    plot(0)
+      </pre>
+      <p><span id="add_alert_4">Or you can ask us to convert your strategy into the study. Send us the code of your strategy to</span><a href="mailto:info@profitrobots.com"> info@profitrobots.com </a>
+        <span id="add_alert_5">and we will send a study with alerts back.</span>
+      </p>
+      <footer>
+        <div class="ui divider"></div>
+        <p>
+          <a href="https://goo.gl/xrDwNZ" target="_blank" id="youtube_link" title="Our Youtube channel">
+            <i class="ui big icon youtube"></i>
+          </a>
+          <a href="http://bit.ly/2CORn5S" target="_blank">
+            <i class="ui big icon">
+              <img src="https://discordapp.com/assets/f8389ca1a741a115313bede9ac02e2c0.svg" title="Discord"/>
+            </i>
+          </a>
+          <a href="https://www.facebook.com/profitrobots/" target="_blank" title="Facebook">
+            <i class="ui big icon facebook"></i>
+          </a>
+        </p>
+        <p>&copy; 2017-2019 - <a href="http://profitrobots.com" target="_blank">Profit Robots</a></p>
+      </footer>
+      <script src="js/add_alert.js"></script>
+  </div>
+  </body>
+</html>
