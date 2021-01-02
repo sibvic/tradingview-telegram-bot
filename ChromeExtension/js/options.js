@@ -1,6 +1,5 @@
 var userData =
 {
-    max_keys: 1,
     last_key: 0
 };
 
@@ -186,14 +185,7 @@ function send_test_message() {
         var key = element.value;
         var id = document.getElementById('key_id' + i).value;
         if (key !== '') {
-            if (i <= userData.max_keys) {
-                send_test_message_to_user(key, id.trim(), '#status' + i, url);
-            }
-            else {
-                var status = $('#status' + i);
-                status.css('display', 'inline');
-                status.html(chrome.i18n.getMessage("KeyLimitIsHit"));
-            }
+            send_test_message_to_user(key, id.trim(), '#status' + i, url);
         }
         element = document.getElementById('key' + ++i);
     }
@@ -280,7 +272,6 @@ $('#test_button').html(chrome.i18n.getMessage("test_button"));
 $('#key_key_info').html(chrome.i18n.getMessage("key_key_info"));
 $('#name_caption').html(chrome.i18n.getMessage("name_caption"));
 $('#desc_caption').html(chrome.i18n.getMessage("desc_caption"));
-$('#price_caption').html(chrome.i18n.getMessage("price_caption"));
 $('#ignore_if_no_filter_label').html(chrome.i18n.getMessage("ignore_if_no_filter_label"));
 $('#include_instrument_label').html(chrome.i18n.getMessage("include_instrument_label"));
 $('#use_beta_label').html(chrome.i18n.getMessage("use_beta_label"));

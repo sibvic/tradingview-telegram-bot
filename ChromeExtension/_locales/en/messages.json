@@ -27,10 +27,6 @@
         "message": "Description",
         "description": "Label in the options"
     },
-    "price_caption": {
-        "message": "Price",
-        "description": "Label in the options"
-    },
     "bot_hosting": {
         "message": "Bot to use:",
         "description": "Label in the options"
@@ -51,14 +47,6 @@
         "message": "Your own bot run on your PC. You can buy the server for the bot <a href='https://www.microsoft.com/en-us/p/notification-bot/9plvrhfc99l5?activetab=pivot:overviewtab'>here</a>",
         "description": "Label in the options"
     },
-    "purchase_button": {
-        "message": "Purchase",
-        "description": "Caption of the button in the options"
-    },
-    "license_button": {
-        "message": "View license",
-        "description": "Caption of the button in the options"
-    },
     "save_button": {
         "message": "Save",
         "description": "Caption of the button in the options"
@@ -70,14 +58,6 @@
     "add_button": {
         "message": "Add receiver",
         "description": "Caption of the button in the options"
-    },
-    "KeyLimitIsHit": {
-        "message": "Your current licence doesn't allow you to use so many keys",
-        "description": "Message in the options"
-    },
-    "SkuDetailsFailed": {
-        "message": "Error retreiving product list. ",
-        "description": "Message in the options"
     },
     "key_key_info": {
         "message": "The key should look like this: 't-123456789:t00000'.<br/>You can get Telegram key by starting a conversation with <a href='https://telegram.me/profit_robots_bot' target='_blank'>our Telegram Bot</a>. Read <a href='https://profitrobots.com/Notifications/TelegramKey' target='_blank'>this article</a> for more details.<br/>To get the Dicord key write something to <a href='http://bit.ly/2CORn5S' target='_blank'>our Discord bot</a>. Read <a href='https://profitrobots.com/Notifications/DiscordKey' target='_blank'>this article</a> for more details.<br/>You can watch how to use bots <a href='bot_setup.html'>here</a>.<br/><br/>To send the alert using a specific key just start the alert text using '[your_key_id]Your alert text'. The alert will be sent using all keys if no '[your_key_id]' is specified. You can read how to use the filtering <a href='filter_samples.html'>here.</a>",
@@ -201,11 +181,6 @@
     "free_limit_hit":
     {
         "message": "The limit of messages per hour is hit (free version).",
-        "description": "Label on the main page"
-    },
-    "max_keys":
-    {
-        "message": "Number of used keys: ",
         "description": "Label on the main page"
     },
     "account_status_loading":

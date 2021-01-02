@@ -18,7 +18,6 @@ function onWindowLoad() {
 	$('#key_info_set').html(chrome.i18n.getMessage("key_info_set"));
 	$('#alerts_status_fail').html(chrome.i18n.getMessage("alerts_status_fail"));
 	$('#alerts_status_ok').html(chrome.i18n.getMessage("alerts_status_ok"));
-	$('#max_keys').html(chrome.i18n.getMessage("max_keys"));
 	$('#doesnt_work').html(chrome.i18n.getMessage("doesnt_work"));
 	$('#sources').html(chrome.i18n.getMessage("sources"));
 	$('#add_alert').html(chrome.i18n.getMessage("add_alert"));
@@ -84,7 +83,6 @@ function updateGeneralStatus() {
 			else {
 				$("#account_status_loading").css('display', 'none');
 			}
-			$("#max_keys_value").text(response.max_keys);
 		}
 	});
 }

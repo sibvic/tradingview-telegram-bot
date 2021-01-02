@@ -35,10 +35,6 @@
         "message": "Описание",
         "description": "Надпись в параметрах"
     },
-    "price_caption": {
-        "message": "Цена",
-        "description": "Надпись в параметрах"
-    },
     "bot_hosting": {
         "message": "Используемый бот:",
         "description": "Надпись в параметрах"
@@ -59,25 +55,9 @@
         "message": "Ваш собственный бот работаюший на вашем ПК. Приобрести серверную часть бота можно <a href='https://www.microsoft.com/en-us/p/notification-bot/9plvrhfc99l5?activetab=pivot:overviewtab'>здесь</a>",
         "description": "Надпись в параметрах"
     },
-    "purchase_button": {
-        "message": "Приобрести",
-        "description": "Надпись кнопки в параметрах"
-    },
-    "license_button": {
-        "message": "Лицензия",
-        "description": "Надпись кнопки в параметрах"
-    },
     "add_button": {
         "message": "Добавить получателя",
         "description": "Надпись кнопки в параметрах"
-    },
-    "SkuDetailsFailed": {
-        "message": "Не удалось получить список дополнительного функционала. ",
-        "description": "Сообщение в параметрах"
-    },
-    "KeyLimitIsHit": {
-        "message": "Текущая лиценция не доспускает использоваения такого количества ключей",
-        "description": "Сообщение в параметрах"
     },
     "key_key_info": {
         "message": "Ключ выглядит вот так: '00000000:t00000'.<br/>Ешл можно получить начав диалог с <a href='https://telegram.me/profit_robots_bot' target='_blank'>нашим Телеграм ботом</a>. Подробнее читайте <a href='https://profitrobots.com/Notifications/TelegramKey' target='_blank'>в этой инструкции</a>.<br/>Для получения ключа для Dicord напишите <a href='http://bit.ly/2CORn5S' target='_blank'>нашему Discord боту</a>. Подробнее читайте <a href='https://profitrobots.com/Notifications/DiscordKey' target='_blank'>в этой инструкции</a>.<br/>Видео с демонстрацией процесса можно посмотреть <a href='bot_setup.html'>здесь</a>.<br/><br/>В начале сообщения можно указать какой ключ использовать для посылки оповещения: '[идентификатор_ключа]Сообщение которое нужно отослать'. Если идентификтор в начале сообщения не указан сообщение будет разослано с использованием всех ключей.<br/>Как пользоваться фильтрами можно <a href='filter_samples.html'>посмотреть тут.</a> ",
@@ -201,11 +181,6 @@
     "free_limit_hit":
     {
         "message": "Достигнуто ограничение на количество сообщений в час (для бесплатной версии).",
-        "description": "Надпись на главной странице"
-    },
-    "max_keys":
-    {
-        "message": "Активных ключей: ",
         "description": "Надпись на главной странице"
     },
     "account_status_loading":
