@@ -20,6 +20,7 @@ function onWindowLoad() {
 	$('#alerts_status_ok').html(chrome.i18n.getMessage("alerts_status_ok"));
 	$('#max_keys').html(chrome.i18n.getMessage("max_keys"));
 	$('#doesnt_work').html(chrome.i18n.getMessage("doesnt_work"));
+	$('#sources').html(chrome.i18n.getMessage("sources"));
 	$('#add_alert').html(chrome.i18n.getMessage("add_alert"));
 	$('#youtube_link').attr("title", chrome.i18n.getMessage("youtube_link_text"));
 

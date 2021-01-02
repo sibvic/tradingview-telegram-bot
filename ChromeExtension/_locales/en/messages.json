@@ -193,6 +193,11 @@
         "message": "Doesn't work?",
         "description": "Label on the main page"
     },
+    "sources":
+    {
+        "message": "Source code on Github",
+        "description": "Label on the main page"
+    },
     "add_alert":
     {
         "message": "How to add an alert into your strategy",
