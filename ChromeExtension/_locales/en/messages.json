@@ -155,12 +155,7 @@
     },
     "add_alert_4":
     {
-        "message": "Or you can ask us to convert your strategy into the study. Send us the code of your strategy to",
-        "description": "Label in Add Alert page"
-    },
-    "add_alert_5":
-    {
-        "message": "and we will send a study with alerts back.",
+        "message": "Or you can convert the strategy into a study using <a target='_blank' href='https://www.microsoft.com/en-us/p/pinescript-converter/9mwmkf7bmqgn?activetab=pivot:overviewtab'>this app</a>",
         "description": "Label in Add Alert page"
     },
     "KeyIdDoNotMatch":

@@ -155,12 +155,7 @@
     },
     "add_alert_4":
     {
-        "message": "Также вы можете послать код вашей стратегии нам на почту ",
-        "description": "Надпись на странице Добавить оповещение"
-    },
-    "add_alert_5":
-    {
-        "message": "и мы пришем вам код сконвертированный в индикатор с оповещениями.",
+        "message": "Также вы можете сконвертировать стратегию с индикатор при помощи <a target='_blank' href='https://www.microsoft.com/en-us/p/pinescript-converter/9mwmkf7bmqgn?activetab=pivot:overviewtab'>этой утилиты</a>",
         "description": "Надпись на странице Добавить оповещение"
     },
     "KeyIdDoNotMatch":
