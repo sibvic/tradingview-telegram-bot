@@ -56,7 +56,7 @@
         "description": "Надпись в параметрах"
     },
     "local_bot_desc": {
-        "message": "Ваш собственный бот работаюший на вашем ПК. Функция находится в закрытой бете. Запросить доступ можно написав на <a href='mailto:info@profitrobots.com'>info@profitrobots.com</a>",
+        "message": "Ваш собственный бот работаюший на вашем ПК. Приобрести серверную часть бота можно <a href='https://www.microsoft.com/en-us/p/notification-bot/9plvrhfc99l5?activetab=pivot:overviewtab'>здесь</a>",
         "description": "Надпись в параметрах"
     },
     "purchase_button": {
@@ -217,11 +217,6 @@
     {
         "message": "Вход",
         "description": "Название кнорки на главной странице"
-    },
-    "trial_ended":
-    {
-        "message": "Пробный период окончен. Для дальнейшего использования данного расширения нужна покупка. В бесплатной версии возможно посылать не более одного оповещения в час.",
-        "description": "Надпись на главной странице"
     },
     "key_info_set":
     {

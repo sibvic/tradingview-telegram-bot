@@ -48,7 +48,7 @@
         "description": "Label in the options"
     },
     "local_bot_desc": {
-        "message": "Your own bot run on your PC. This feature is in closed beta. You can ask for an access via <a href='mailto:info@profitrobots.com'>info@profitrobots.com</a>",
+        "message": "Your own bot run on your PC. You can buy the server for the bot <a href='https://www.microsoft.com/en-us/p/notification-bot/9plvrhfc99l5?activetab=pivot:overviewtab'>here</a>",
         "description": "Label in the options"
     },
     "purchase_button": {
@@ -217,11 +217,6 @@
     {
         "message": "Login",
         "description": "Caption of the button on the main page"
-    },
-    "trial_ended":
-    {
-        "message": "Your trial period has ended. You need to buy this extension in order to use it. The free version is limited to 1 alert per hour.",
-        "description": "Label on the main page"
     },
     "key_info_set":
     {
