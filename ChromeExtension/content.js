@@ -90,6 +90,61 @@ function getMultiScreenerSymbols(cell) {
 	return $(cell).text().trim()
 }
 
+function sendV3Format() {
+	var dialog = FindDialogV3();
+	if (dialog != undefined && dialog != null) {
+		var symbolTag = FindTag(dialog.children, "a", "js-symbol");
+		if (symbolTag === undefined || symbolTag === null) {
+			return false;
+		}
+		var symbolAttr = symbolTag.getAttribute("data-symbol");
+		if (symbolAttr === undefined || symbolAttr === null) {
+			return false;
+		}
+		var contentTag = FindTag(dialog.children, "p", "content");
+		if (contentTag === undefined || contentTag === null) {
+			return false;
+		}
+		var content = contentTag.textContent;
+		var okButton = FindTag(dialog.children, "button", "appearance-default-");
+		window.AlertSender.sendAlert(content, symbolAttr, '', Date.now());
+		if (okButton !== undefined) {
+			okButton.click();
+		}
+		return true;
+	}
+	return false;
+}
+
+function ClassStartsWith(item, name) {
+	var classAttr = item.getAttribute("class");
+	return classAttr != undefined && classAttr != null && classAttr.includes(name);
+}
+
+function FindDialogV3() {
+	var items = document.getElementsByTagName("div");
+	for (var i = 0; i < items.length; i++) {
+		var item = items[i];
+		if (ClassStartsWith(item, "popupDialog")) {
+			return item;
+		}
+	}
+	return null;
+}
+function FindTag(tags, tagName, className) {
+	for (var i = 0; i < tags.length; i++) {
+		var item = tags[i];
+		if (item.tagName.toLowerCase() == tagName && ClassStartsWith(item, className)) {
+			return item;
+		}
+		var childItem = FindTag(item.children, tagName, className);
+		if (childItem != null) {
+			return childItem;
+		}
+	}
+	return null;
+}
+
 function parseScreenerMultiMessages() {
 	var messages = [];
     var container = $('.js-alerts-multiple-notifications-dialog__table-container');
@@ -282,17 +337,17 @@ function onWindowLoad() {
 	var timerId = setInterval(function() {
 		updateOptions();
 		window.AlertSender.resendOldAlerts();
-		var hasPrivateChannel = window.PrivateChannel !== undefined && window.PrivateChannel !== null && window.PrivateChannel !== "";
-		if (window.IsBeta === false && !hasPrivateChannel) {
-			if (sendOldFormat()) {
-				return;
-			}
-			if (sendNewFormat()) {
-				return;
-			}
-			if (sendMulti()) {
-				return;
-			}
+		if (sendV3Format()) {
+			return;
+		}
+		if (sendOldFormat()) {
+			return;
+		}
+		if (sendNewFormat()) {
+			return;
+		}
+		if (sendMulti()) {
+			return;
 		}
 		if (sendScreenerMulti()) {
 		 	return;
