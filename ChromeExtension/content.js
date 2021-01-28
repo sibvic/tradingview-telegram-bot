@@ -105,7 +105,13 @@ function sendV3Format() {
 		if (contentTag === undefined || contentTag === null) {
 			return false;
 		}
-		var content = contentTag.textContent;
+		
+		var subtitle = FindTag(dialog.children, "p", "subTitle");
+		var content = "";
+		if (subtitle !== undefined) {
+			content = subtitle.textContent + "\n";
+		}
+		content += contentTag.textContent;
 		var okButton = FindTag(dialog.children, "button", "appearance-default-");
 		window.AlertSender.sendAlert(content, symbolAttr, '', Date.now());
 		if (okButton !== undefined) {
