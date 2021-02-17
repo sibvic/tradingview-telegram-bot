@@ -2,7 +2,7 @@
     "name": "__MSG_extension_title__",
     "short_name": "__MSG_extension_title__",
     "description" : "__MSG_extension_desc__",
-    "version": "1.0.48",
+    "version": "1.0.49",
     "manifest_version": 2,
     "default_locale": "en",
     "browser_action": {

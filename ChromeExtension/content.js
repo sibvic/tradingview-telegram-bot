@@ -108,13 +108,13 @@ function sendV3Format() {
 		
 		var subtitle = FindTag(dialog.children, "p", "subTitle");
 		var content = "";
-		if (subtitle !== undefined) {
+		if (subtitle !== undefined && subtitle !== null) {
 			content = subtitle.textContent + "\n";
 		}
 		content += contentTag.textContent;
 		var okButton = FindTag(dialog.children, "button", "appearance-default-");
 		window.AlertSender.sendAlert(content, symbolAttr, '', Date.now());
-		if (okButton !== undefined) {
+		if (okButton !== undefined && okButton !== null) {
 			okButton.click();
 		}
 		return true;
