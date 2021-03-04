@@ -7,3 +7,6 @@ ChromeExtension.crx
 .vscode/launch.json
 ChromeExtension/js/jquery
 ChromeExtension/semantic
+2.html
+3.html
+debug.log
