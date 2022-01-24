@@ -183,77 +183,13 @@ function sendScreenerMulti() {
 	return messages.length > 0;
 }
 
-function parseMultiMessage(row) {
-	var obj = {};
-	$(row).children('td').each(function(index, element) {
-		switch (index)
-		{
-			case 1:
-				obj.message = $(this).text().trim();
-				break;
-			case 0:
-				obj.title = $(this).text().trim();
-				break;
-			case 3:
-				obj.time = $(this).text().trim();
-				break;
-		}
-	});
-	return obj;
-}
-
-function parseMultiMessage(row) {
-	var obj = {};
-	$(row).children('td').each(function(index, element) {
-		switch (index)
-		{
-			case 1:
-				obj.message = $(this).text().trim();
-				break;
-			case 0:
-				obj.title = $(this).text().trim();
-				break;
-			case 3:
-				obj.time = $(this).text().trim();
-				break;
-		}
-	});
-	return obj;
-}
-
-function parseMultiMessagesOldFormat() {
-	var messages = [];
-	if ($('.tv-alerts-multiple-notifications-dialog__table') !== undefined) {
-		$('.tv-alerts-multiple-notifications-dialog__row').each( function( index, element ){
-			var message = parseMultiMessage(this);
-			messages.push(message);
-		});
-	}
-	return messages;
-}
-
-function parseMultiMessagesNewFormat() {
-	var messages = [];
-	var dialog = $('.tv-alerts-multiple-notifications-dialog');
-	if (dialog === undefined || dialog === null) {
-		return messages;
-	}
-
-	if ($('.tv-alerts-multiple-notifications-dialog__table') !== undefined) {
-		dialog.find('tr').each( function( index, element ){
-			var message = parseMultiMessage(this);
-			if (message.message !== undefined) {
-				messages.push(message);
-			}
-		});
-	}
-	return messages;
-}
-
 function sendMulti() {
-	var messages = parseMultiMessagesOldFormat();
+	var messages = parseMultiMessagesV1Format();
 	if (messages.length == 0) {
-		messages = parseMultiMessagesNewFormat();
+		messages = parseMultiMessagesV2Format();
+	}
+	if (messages.length == 0) {
+		messages = parseMultiMessagesV3Format();
 	}
 	for (var i = 0; i < messages.length; i++) {
 		window.AlertSender.sendAlert(messages[i].message, GetInstrument(messages[i].title), '', messages[i].time);
