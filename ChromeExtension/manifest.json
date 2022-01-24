@@ -2,7 +2,7 @@
     "name": "__MSG_extension_title__",
     "short_name": "__MSG_extension_title__",
     "description" : "__MSG_extension_desc__",
-    "version": "1.0.49",
+    "version": "1.0.51",
     "manifest_version": 2,
     "default_locale": "en",
     "browser_action": {
@@ -25,7 +25,18 @@
     "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuIJUy+fSvWxBVctqYXUAGSpZCSFHTWLnbCO0X0+jPubMF+owz7tWlyXTUAthDlwgqvyYcsXO93nagwmYwr4YA4RLfaOsvEl933S153ywT74ByHgXjydZSAL0UmIk0xnP4GzBDhZaLGJtOv28ew4DI6v5Tc2zzE8q+SB06YuoDNqlsY9rNdpsch8cOSc6kqi18cCavUUHmNjRIGhMnsTmzhio4i1ef2QGcAfk+l9Tbl8AbT5LzcVjMTKIc6f9RFF4gcmpUUqGaCmISNkzkfjLsY1qMNEZUo1RvICuzVJorYf+9ZwSGxsyX4vinIah/+g7nudCvB3Q2zu5oZlW12RjdwIDAQAB",
     "options_page": "options.html",
     "content_scripts": [ {
-        "js": [ "js/jquery/jquery-3.1.1.min.js", "js/common.js", "js/parsing/MultiMessagesV1.js", "js/parsing/MultiMessagesV2.js", "js/parsing/MultiMessagesV3.js", "content.js" ],
+        "js": [ 
+            "js/jquery/jquery-3.1.1.min.js", 
+            "js/common.js", 
+            "js/parsing/MultiMessagesV1.js", 
+            "js/parsing/MultiMessagesV2.js", 
+            "js/parsing/MultiMessagesV3.js", 
+            "js/parsing/SingleV1.js", 
+            "js/parsing/SingleV2.js", 
+            "js/parsing/SingleV3.js", 
+            "js/parsing/SingleV4.js", 
+            "content.js" 
+        ],
         "matches": [ "https://*.tradingview.com/*" ],
         "run_at": "document_start"
     } ],

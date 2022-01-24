@@ -1,7 +1,6 @@
 function parseMultiMessageV3(row) {
 	var obj = {};
 	$(row).children('div').each(function(index, element) {
-        console.log(element.className);
         if (element.className.match(/.*timeCell.*/)) {
             obj.time = $(this).text().trim();
         } else if (element.className.match(/.*alertInfoCell.*/)) { 

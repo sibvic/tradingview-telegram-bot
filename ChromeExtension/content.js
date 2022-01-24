@@ -1,6 +1,6 @@
 "use strict";
 
-function GetInstrument(str) {
+function getInstrument(str) {
     if (str === undefined) {
         return "";
     }
@@ -13,42 +13,26 @@ function GetInstrument(str) {
     return match[1];
 }
 
-function sendOldFormat() {
-	var message = $('.tv-alert-single-notification-dialog__message');
-	var title = $('.tv-alert-single-notification-dialog__title');
-	if (message !== undefined && message.html() !== undefined) {
-		window.AlertSender.sendAlert(message.text(), GetInstrument(title.text()), '', Date.now());
-
-		var okButton = $('.tv-alert-notification-dialog__button--ok');
-		if (okButton !== undefined) {
-			okButton.click();
-		}
-		return true;
+function getSignleMessage() {
+	var message = parseSingleV4();
+	if (message !== null) {
+		return message;
 	}
-	return false;
+	message = parseSingleV3();
+	if (message !== null) {
+		return message;
+	}
+	message = parseSingleV2();
+	if (message !== null) {
+		return message;
+	}
+	return parseSingleV1();
 }
 
-function getNewFromatOKButton(message) {
-	var dialog = message;
-	while (dialog !== null && dialog !== undefined) {
-		dialog = dialog.parent();
-		if (dialog.hasClass('tv-dialog')) {
-			return dialog.find('.tv-button--primary');
-		}
-	}
-	return null;
-}
-
-function sendNewFormat() {
-	var message = $('.tv-alert-notification-dialog__subtitle');
-	var title = $('.tv-alert-notification-dialog__title');
-	if (message !== undefined && message.html() !== undefined && message.text() !== "") {
-		window.AlertSender.sendAlert(message.text(), GetInstrument(title.text()), '', Date.now());
-
-		var okButton = getNewFromatOKButton(message);
-		if (okButton !== null && okButton !== undefined) {
-			okButton.click();
-		}
+function sendSingleFormat() {
+	var message = getSignleMessage();
+	if (message !== null) {
+		window.AlertSender.sendAlert(message.message, getInstrument(message.title), '', message.time);
 		return true;
 	}
 	return false;
@@ -88,67 +72,6 @@ function sendScreenerAlert() {
 
 function getMultiScreenerSymbols(cell) {
 	return $(cell).text().trim()
-}
-
-function sendV3Format() {
-	var dialog = FindDialogV3();
-	if (dialog != undefined && dialog != null) {
-		var symbolTag = FindTag(dialog.children, "a", "js-symbol");
-		if (symbolTag === undefined || symbolTag === null) {
-			return false;
-		}
-		var symbolAttr = symbolTag.getAttribute("data-symbol");
-		if (symbolAttr === undefined || symbolAttr === null) {
-			return false;
-		}
-		var contentTag = FindTag(dialog.children, "p", "content");
-		if (contentTag === undefined || contentTag === null) {
-			return false;
-		}
-		
-		var subtitle = FindTag(dialog.children, "p", "subTitle");
-		var content = "";
-		if (subtitle !== undefined && subtitle !== null) {
-			content = subtitle.textContent + "\n";
-		}
-		content += contentTag.textContent;
-		var okButton = FindTag(dialog.children, "button", "appearance-default-");
-		window.AlertSender.sendAlert(content, symbolAttr, '', Date.now());
-		if (okButton !== undefined && okButton !== null) {
-			okButton.click();
-		}
-		return true;
-	}
-	return false;
-}
-
-function ClassStartsWith(item, name) {
-	var classAttr = item.getAttribute("class");
-	return classAttr != undefined && classAttr != null && classAttr.includes(name);
-}
-
-function FindDialogV3() {
-	var items = document.getElementsByTagName("div");
-	for (var i = 0; i < items.length; i++) {
-		var item = items[i];
-		if (ClassStartsWith(item, "popupDialog")) {
-			return item;
-		}
-	}
-	return null;
-}
-function FindTag(tags, tagName, className) {
-	for (var i = 0; i < tags.length; i++) {
-		var item = tags[i];
-		if (item.tagName.toLowerCase() == tagName && ClassStartsWith(item, className)) {
-			return item;
-		}
-		var childItem = FindTag(item.children, tagName, className);
-		if (childItem != null) {
-			return childItem;
-		}
-	}
-	return null;
 }
 
 function parseScreenerMultiMessages() {
@@ -192,7 +115,7 @@ function sendMulti() {
 		messages = parseMultiMessagesV3Format();
 	}
 	for (var i = 0; i < messages.length; i++) {
-		window.AlertSender.sendAlert(messages[i].message, GetInstrument(messages[i].title), '', messages[i].time);
+		window.AlertSender.sendAlert(messages[i].message, getInstrument(messages[i].title), '', messages[i].time);
 	}
 	return messages.length > 0;
 }
@@ -279,13 +202,7 @@ function onWindowLoad() {
 	var timerId = setInterval(function() {
 		updateOptions();
 		window.AlertSender.resendOldAlerts();
-		if (sendV3Format()) {
-			return;
-		}
-		if (sendOldFormat()) {
-			return;
-		}
-		if (sendNewFormat()) {
+		if (sendSingleFormat()) {
 			return;
 		}
 		if (sendMulti()) {
