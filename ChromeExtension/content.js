@@ -114,6 +114,9 @@ function sendMulti() {
 	if (messages.length == 0) {
 		messages = parseMultiMessagesV3Format();
 	}
+	if (messages.length == 0) {
+		messages = parseMultiMessagesV4Format();
+	}
 	for (var i = 0; i < messages.length; i++) {
 		window.AlertSender.sendAlert(messages[i].message, getInstrument(messages[i].title), '', messages[i].time);
 	}
