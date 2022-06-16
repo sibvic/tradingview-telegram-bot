@@ -45,7 +45,7 @@
         "storage",
         "identity",
         "https://*.tradingview.com/*",
-        "http://profitrobots.com/api/v1/notification",
+        "http://profitrobotsapi.azurewebsites.net/api/v1/notification",
         "http://localhost:5000/api/v1/notification",
         "https://www.googleapis.com/"
     ],
