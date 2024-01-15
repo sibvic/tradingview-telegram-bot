@@ -1,6 +1,6 @@
 
 var local_url = "http://localhost:5000/api/v1/notification";
-var public_url = "https://profitrobotsapi.azurewebsites.net/api/v1/notification";
+var public_url = "https://profitrobots.com/api/v1/notification";
 
 function GetUrl(use_local) {
     return use_local === true ? local_url : public_url;
