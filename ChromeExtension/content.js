@@ -14,6 +14,10 @@ function getInstrument(str) {
 }
 
 function getSignleMessage() {
+	var message = parseSingleV5();
+	if (message !== null) {
+		return message;
+	}
 	var message = parseSingleV4();
 	if (message !== null) {
 		return message;
@@ -32,6 +36,7 @@ function getSignleMessage() {
 function sendSingleFormat() {
 	var message = getSignleMessage();
 	if (message !== null) {
+		console.log("message parsed ", message);
 		window.AlertSender.sendAlert(message.message, getInstrument(message.title), '', message.time);
 		return true;
 	}

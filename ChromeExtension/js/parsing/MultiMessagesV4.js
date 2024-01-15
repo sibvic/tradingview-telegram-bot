@@ -18,8 +18,6 @@ function parseMultiMessageV4(row) {
         else if (items[i].className.match(/.*symbolCell-.*/)) {
             obj.symbol = $(items[i]).text().trim();
         }
-        
-        console.log(obj);
     }
             
 	return obj;

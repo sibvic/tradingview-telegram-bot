@@ -2,7 +2,7 @@
     "name": "__MSG_extension_title__",
     "short_name": "__MSG_extension_title__",
     "description" : "__MSG_extension_desc__",
-    "version": "1.0.54",
+    "version": "1.0.55",
     "manifest_version": 2,
     "default_locale": "en",
     "browser_action": {
@@ -36,6 +36,7 @@
             "js/parsing/SingleV2.js", 
             "js/parsing/SingleV3.js", 
             "js/parsing/SingleV4.js", 
+            "js/parsing/SingleV5.js", 
             "content.js" 
         ],
         "matches": [ "https://*.tradingview.com/*" ],
@@ -45,7 +46,7 @@
         "storage",
         "identity",
         "https://*.tradingview.com/*",
-        "http://profitrobotsapi.azurewebsites.net/api/v1/notification",
+        "http://profitrobots.com/api/v1/notification",
         "http://localhost:5000/api/v1/notification",
         "https://www.googleapis.com/"
     ],
