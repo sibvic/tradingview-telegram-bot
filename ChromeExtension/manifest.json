@@ -3,9 +3,9 @@
     "short_name": "__MSG_extension_title__",
     "description" : "__MSG_extension_desc__",
     "version": "1.0.55",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "default_locale": "en",
-    "browser_action": {
+    "action": {
         "default_popup": "main.html",
         "default_icon": "icon128.png"
     },
@@ -14,7 +14,7 @@
         "128": "icon128.png"
     },
     "background": {
-        "scripts": ["js/common.js", "js/background.js"]
+        "service_worker": "js/background.js"
     },
     "oauth2": {
         "client_id": "984997579345-sgdombkmdc6hk9enuo8qmov00rg0t9rv.apps.googleusercontent.com",
@@ -45,10 +45,19 @@
     "permissions": [
         "storage",
         "identity",
+        "alarms"
+    ],
+    "host_permissions": [
         "https://*.tradingview.com/*",
         "http://profitrobots.com/api/v1/notification",
+        "https://profitrobots.com/api/v1/notification",
         "http://localhost:5000/api/v1/notification",
-        "https://www.googleapis.com/"
+        "https://www.googleapis.com/*"
     ],
-    "web_accessible_resources": [ "content_handler.js" ]
+    "web_accessible_resources": [
+        {
+            "resources": [ "content_handler.js" ],
+            "matches": [ "https://*.tradingview.com/*" ]
+        }
+    ]
 }

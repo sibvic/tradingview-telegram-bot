@@ -227,15 +227,32 @@ function onWindowLoad() {
 
 function resource(filename) {
 	let script = document.createElement("script");
-	script.src = chrome.extension.getURL(filename);
+	script.src = chrome.runtime.getURL(filename);
 	script.type = "text/javascript";
 
 	return script;
 }
 
+function webAccessibleFilenames(manifest) {
+	const resources = manifest.web_accessible_resources || [];
+	const filenames = [];
+	for (let i = 0; i < resources.length; i++) {
+		const entry = resources[i];
+		if (typeof entry === "string") {
+			filenames.push(entry);
+			continue;
+		}
+		const nested = entry && entry.resources ? entry.resources : [];
+		for (let j = 0; j < nested.length; j++) {
+			filenames.push(nested[j]);
+		}
+	}
+	return filenames;
+}
+
 const element = document.body || document.head || document.documentElement;
 const manifest = chrome.runtime.getManifest();
-const resources = manifest.web_accessible_resources;
+const resources = webAccessibleFilenames(manifest);
 
 for (let i = 0; i < resources.length; i++) {
 	let filename = resources[i];

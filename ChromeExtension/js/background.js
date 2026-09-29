@@ -1,3 +1,115 @@
+importScripts("common.js");
+
+if (typeof window === "undefined") {
+    self.window = self;
+}
+
+if (typeof EventSource === "undefined") {
+    function ServiceWorkerEventSource(url) {
+        var source = this;
+        var closedByUser = false;
+        var abortController = new AbortController();
+        this.url = url;
+        this.readyState = ServiceWorkerEventSource.CONNECTING;
+        this.onerror = null;
+        this.onmessage = null;
+        this.onopen = null;
+
+        this.close = function () {
+            closedByUser = true;
+            source.readyState = ServiceWorkerEventSource.CLOSED;
+            abortController.abort();
+        };
+
+        this._fail = function () {
+            if (closedByUser || source.readyState === ServiceWorkerEventSource.CLOSED) {
+                return;
+            }
+            source.readyState = ServiceWorkerEventSource.CLOSED;
+            if (source.onerror) {
+                source.onerror({ target: source });
+            }
+        };
+
+        this._dispatch = function (rawEvent) {
+            var lines = rawEvent.split("\n");
+            var dataLines = [];
+            for (var i = 0; i < lines.length; i++) {
+                if (lines[i].indexOf("data:") === 0) {
+                    dataLines.push(lines[i].slice(5).replace(/^ /, ""));
+                }
+            }
+            if (dataLines.length && source.onmessage) {
+                source.onmessage({ data: dataLines.join("\n") });
+            }
+        };
+
+        fetch(url, {
+            signal: abortController.signal,
+            headers: { Accept: "text/event-stream" }
+        }).then(function (response) {
+            if (!response.ok || !response.body) {
+                source._fail();
+                return;
+            }
+            source.readyState = ServiceWorkerEventSource.OPEN;
+            if (source.onopen) {
+                source.onopen();
+            }
+            var reader = response.body.getReader();
+            var decoder = new TextDecoder();
+            var buffer = "";
+
+            function pump() {
+                return reader.read().then(function (result) {
+                    if (source.readyState === ServiceWorkerEventSource.CLOSED) {
+                        return;
+                    }
+                    if (result.done) {
+                        source._fail();
+                        return;
+                    }
+                    buffer += decoder.decode(result.value, { stream: true });
+                    buffer = buffer.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+                    var splitAt = buffer.indexOf("\n\n");
+                    while (splitAt !== -1) {
+                        source._dispatch(buffer.slice(0, splitAt));
+                        buffer = buffer.slice(splitAt + 2);
+                        splitAt = buffer.indexOf("\n\n");
+                    }
+                    return pump();
+                });
+            }
+
+            return pump();
+        }).catch(function () {
+            source._fail();
+        });
+    }
+
+    ServiceWorkerEventSource.CONNECTING = 0;
+    ServiceWorkerEventSource.OPEN = 1;
+    ServiceWorkerEventSource.CLOSED = 2;
+    self.EventSource = ServiceWorkerEventSource;
+}
+
+var lastEventIdCache = "";
+
+function getLastEventId() {
+    return lastEventIdCache || "";
+}
+
+function setLastEventId(id) {
+    lastEventIdCache = id;
+    chrome.storage.local.set({ last_event_id: id });
+}
+
+function persistRetryQueue() {
+    chrome.storage.local.set({
+        to_resend: userData.to_resend,
+        last_url: userData.last_url
+    });
+}
 
 var userData =
 {
@@ -15,14 +127,9 @@ function updateToken(interactive) {
         userData.updated = true;
         userData.token = token;
         var CWS_LICENSE_API_URL = 'https://www.googleapis.com/chromewebstore/v1.1/userlicenses/';
-        var req = new XMLHttpRequest();
-        req.open('GET', CWS_LICENSE_API_URL + chrome.runtime.id);
-        req.setRequestHeader('Authorization', 'Bearer ' + token);
-        req.onreadystatechange = function() {
-            if (req.readyState == 4) {
-            }
-        }
-        req.send();
+        fetch(CWS_LICENSE_API_URL + chrome.runtime.id, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        }).catch(function () {});
     });
 }
 updateToken(false);
@@ -51,6 +158,7 @@ function resendFailedAlerts() {
     console.info("ProfitRobots: Resenging alerts");
     var toResend = userData.to_resend;
     userData.to_resend = [];
+    persistRetryQueue();
     for (var i = 0; i < toResend.length; ++i) {
         sendObject(toResend, userData.last_url);
     }
@@ -58,23 +166,27 @@ function resendFailedAlerts() {
 
 function sendObject(obj, url) {
     var dataToSend = JSON.stringify(obj);
-    
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            if (xhr.status === 404) {
-                console.info("ProfitRobots: Key was not found");
-            }
-            else if (xhr.status !== 200) {
-                console.info("ProfitRobots: Failed to send", obj);
-                userData.to_resend.push(obj);
-                userData.last_url = url;
-            }
+
+    fetch(url, {
+        method: "POST",
+        headers: { 'Content-type': 'application/json; charset=utf-8' },
+        body: dataToSend
+    }).then(function (response) {
+        if (response.status === 404) {
+            console.info("ProfitRobots: Key was not found");
         }
-    }
-    xhr.send(dataToSend);
+        else if (!response.ok) {
+            console.info("ProfitRobots: Failed to send", obj);
+            userData.to_resend.push(obj);
+            userData.last_url = url;
+            persistRetryQueue();
+        }
+    }).catch(function () {
+        console.info("ProfitRobots: Failed to send", obj);
+        userData.to_resend.push(obj);
+        userData.last_url = url;
+        persistRetryQueue();
+    });
 }
 
 function send(target_key, target_id, instrument, timeframe, custom_format, text, ignoreIfNoFilter, url) {
@@ -246,7 +358,7 @@ window.AlertSource = {
 		console.info("ProfitRobots: Starting alert listener");
 		this.status = STARTED;
 		this.privateChannel = privateChannel;
-		const lastEventId = window.localStorage.getItem("last_event_id") || "";
+		const lastEventId = getLastEventId();
 		const url = "https://pushstream.tradingview.com"
 			+ "/message-pipe-es/public/"
 			+ "private_" + this.privateChannel
@@ -278,7 +390,7 @@ window.AlertSource = {
 				if (response.m !== "event") {
 					return;
 				}
-				window.localStorage.setItem("last_event_id", response.p.id);
+				setLastEventId(response.p.id);
                 console.info("ProfitRobots: Message detected", response.p.desc);
                 this.sendAlert(response.p.desc, response.p.sym, this.parseResolution(response.p.res));
 			}
@@ -340,4 +452,48 @@ function onWindowLoad() {
 	}, 1000);
 }
 
-window.onload = onWindowLoad;
+var storageReady = false;
+var startRequested = false;
+var backgroundLoopStarted = false;
+
+function ensureBackgroundLoop() {
+    if (backgroundLoopStarted) {
+        return;
+    }
+    backgroundLoopStarted = true;
+    onWindowLoad();
+}
+
+function requestStart() {
+    startRequested = true;
+    if (storageReady) {
+        ensureBackgroundLoop();
+    }
+}
+
+chrome.storage.local.get({
+    last_event_id: "",
+    to_resend: [],
+    last_url: ""
+}, function (items) {
+    lastEventIdCache = items.last_event_id || "";
+    if (items.to_resend && items.to_resend.length) {
+        userData.to_resend = items.to_resend;
+    }
+    if (items.last_url) {
+        userData.last_url = items.last_url;
+    }
+    storageReady = true;
+    if (startRequested) {
+        ensureBackgroundLoop();
+    }
+});
+
+requestStart();
+chrome.runtime.onStartup.addListener(requestStart);
+chrome.alarms.create("profitrobots-keepalive", { periodInMinutes: 1 });
+chrome.alarms.onAlarm.addListener(function (alarm) {
+    if (alarm.name === "profitrobots-keepalive") {
+        requestStart();
+    }
+});
